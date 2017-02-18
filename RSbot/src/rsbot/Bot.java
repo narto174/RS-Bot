@@ -42,19 +42,31 @@ public class Bot {
         robot.setAutoDelay(40);
        // robot.setAutoWaitForIdle(true);
        
-       
+         robot.delay(50);
         //running to the rock
+        runToTheRock();
+    }
+    
+    public void runToTheRock(){
         robot.mouseMove(1316, 60);
-        robot.delay(50);
         leftClick();
+        robot.delay(600);
+        
         robot.mouseMove(1902, 248);
         leftClick();
+        robot.delay(800);
+        
         robot.mouseMove(1868, 372);
         leftClick();
+        robot.delay(800);
+        
         robot.mouseMove(1806, 407);
         leftClick();
+        robot.delay(1200);
+        
         robot.mouseMove(806, 819);
         leftClick();
+        robot.delay(300);
     }
     
      public void leftClick()
