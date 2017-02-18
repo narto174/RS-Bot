@@ -48,16 +48,34 @@ public class Bot {
         
         //mining
         mine();
+        
+        runBackToBank();
+    }
+    
+    public void mechanic(int mouseX, int mouseY, int delay){
+        robot.mouseMove(mouseX, mouseY);
+        leftClick();
+        robot.delay(delay);
+    }
+    
+    public void runBackToBank(){
+        mechanic(1837, 84, 13000);
+        mechanic(1755, 104, 11000);
+        mechanic(1711, 245, 9000);
+        mechanic(1768, 276, 5000);
+        mechanic(968, 688, 1000);
     }
     
     public void mine(){
-        robot.mouseMove(887, 537);
-        leftClick();
-        robot.delay(300000);
+        for(int x = 0; x < 14; x++){
+            robot.mouseMove(887, 537);
+            leftClick();
+            robot.delay(8000);
         
-        robot.mouseMove(951, 474);
-        leftClick();
-        robot.delay(300000);
+            robot.mouseMove(951, 474);
+            leftClick();
+            robot.delay(8000);
+        }
     }
     
     public void runToTheRock(){
@@ -78,6 +96,10 @@ public class Bot {
         robot.delay(12000);
         
         robot.mouseMove(806, 819);
+        leftClick();
+        robot.delay(3000);
+        
+        robot.mouseMove(782, 835);
         leftClick();
         robot.delay(3000);
     }
