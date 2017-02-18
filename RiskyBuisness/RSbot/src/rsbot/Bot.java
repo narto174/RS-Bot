@@ -39,16 +39,15 @@ public class Bot {
     * run this method once the bot has been constructed
     */
     public void execute(){
-        robot.setAutoDelay(40);
-       
-        robot.delay(50);
-         
+
         Scanner scanner = null;
         try{
             scanner = new Scanner(new File("input.txt"));
         }catch(FileNotFoundException e){
             System.err.println("File input.txt not found");
         }
+        
+        robot.delay(50);
         
         while(scanner.hasNextInt()){
             mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
