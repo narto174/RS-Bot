@@ -40,41 +40,52 @@ public class Bot {
     */
     public void execute(){
         robot.setAutoDelay(40);
-       // robot.setAutoWaitForIdle(true);
        
          robot.delay(50);
+         
         //running to the rock
         runToTheRock();
+        
+        //mining
+        mine();
+    }
+    
+    public void mine(){
+        robot.mouseMove(887, 537);
+        leftClick();
+        robot.delay(300000);
+        
+        robot.mouseMove(951, 474);
+        leftClick();
+        robot.delay(300000);
     }
     
     public void runToTheRock(){
         robot.mouseMove(1316, 60);
         leftClick();
-        robot.delay(600);
+        robot.delay(6000);
         
         robot.mouseMove(1902, 248);
         leftClick();
-        robot.delay(800);
+        robot.delay(8000);
         
         robot.mouseMove(1868, 372);
         leftClick();
-        robot.delay(800);
+        robot.delay(8000);
         
         robot.mouseMove(1806, 407);
         leftClick();
-        robot.delay(1200);
+        robot.delay(12000);
         
         robot.mouseMove(806, 819);
         leftClick();
-        robot.delay(300);
+        robot.delay(3000);
     }
     
      public void leftClick()
     {
      robot.mousePress(InputEvent.BUTTON1_MASK);
-    // robot.delay(200);
      robot.mouseRelease(InputEvent.BUTTON1_MASK);
-     //robot.delay(200);
      }
   
      private void type(int i)
