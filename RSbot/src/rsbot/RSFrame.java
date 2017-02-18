@@ -73,9 +73,8 @@ public class RSFrame extends javax.swing.JFrame {
        try{
         jLabel1.setText("clicked!");
         bot.execute();
-       }catch(Exception e){
-           
-       }
+        jLabel1.setText("i did my best");
+       }catch(Exception e){}
     }//GEN-LAST:event_jButton1ActionPerformed
 
      
