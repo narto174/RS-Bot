@@ -22,7 +22,6 @@ public class Bot {
     int x1, x2, y1, y2;
     Robot robot = new Robot();
     String action;
-    Boolean keepGoing;
     
     public Bot() throws AWTException{
         x1 = 0;
@@ -30,7 +29,6 @@ public class Bot {
         y1 = 1917;
         y2 = 1030;
         action = null;
-        keepGoing = true;
     }
     
     public Bot(int x1, int x2, int y1, int y2) throws AWTException{
@@ -39,7 +37,6 @@ public class Bot {
         this.y1 = y1;
         this.y2 = y2;
         action = null;
-        keepGoing = true;
     }
     
     public void setAction(String str){
@@ -47,15 +44,12 @@ public class Bot {
         action = action.toUpperCase().replace(" ", "");
     }
     
-    public void setKeepGoing(Boolean temp){
-        keepGoing = temp;
-    }
     
     /*
     * run this method once the bot has been constructed
     */
     public void execute(){
-        while(keepGoing){
+        while(true){
             
          String fileName = "";
          if(action.equals("VARROCKOREMINING")){
@@ -89,8 +83,8 @@ public class Bot {
         robot.mouseMove(mouseX, mouseY);
         button = button.replace(" ", "");
         if(button.equals("RIGHT")){
-            robot.mousePress(InputEvent.BUTTON2_MASK);
-            robot.mouseRelease(InputEvent.BUTTON2_MASK);
+            robot.mousePress(InputEvent.BUTTON3_MASK);
+            robot.mouseRelease(InputEvent.BUTTON3_MASK);
         }else if(button.equals("LEFT")){
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
