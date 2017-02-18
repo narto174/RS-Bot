@@ -1,14 +1,13 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+*
+* FILE: Bot.java
+* DESCRIPTION: This file contains the Bot class
+* @author Triston Madilyn Simons
+* @author Matt Marazzo
+*
+*/
 package rsbot;
 
-/**
- *
- * @author madilynsimons
- */
 
 import java.awt.AWTException;
 import java.awt.Robot;
