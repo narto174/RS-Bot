@@ -15,12 +15,14 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
 public class Bot {
     
     int x1, x2, y1, y2;
     Robot robot = new Robot();
     String action;
+    Boolean keepGoing;
     
     public Bot() throws AWTException{
         x1 = 0;
@@ -28,6 +30,7 @@ public class Bot {
         y1 = 1917;
         y2 = 1030;
         action = null;
+        keepGoing = true;
     }
     
     public Bot(int x1, int x2, int y1, int y2) throws AWTException{
@@ -36,6 +39,7 @@ public class Bot {
         this.y1 = y1;
         this.y2 = y2;
         action = null;
+        keepGoing = true;
     }
     
     public void setAction(String str){
@@ -43,16 +47,20 @@ public class Bot {
         action = action.toUpperCase().replace(" ", "");
     }
     
+    public void setKeepGoing(Boolean temp){
+        keepGoing = temp;
+    }
+    
     /*
     * run this method once the bot has been constructed
     */
     public void execute(){
-        while(true){
+        while(keepGoing){
             
          String fileName = "";
          if(action.equals("VARROCKOREMINING")){
              fileName = "input.txt";
-         }else if (action.equals("")){
+         }else if (action.equals("CHOCOLATEGRINDING")){
              fileName = "input2.txt";
          }
             
@@ -66,11 +74,35 @@ public class Bot {
         
           robot.delay(50);
         
-          while(scanner.hasNextInt()){
-             mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+          while(scanner.hasNext()){
+              if(fileName.equals("input.txt")){
+                mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+              }else if(fileName.equals("input2.txt")){
+                 mechanic2(scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), scanner.next());
+              }
          }
         }
         
+    }
+    
+    public void mechanic2(int mouseX, int mouseY, int delay, String button){
+        robot.mouseMove(mouseX, mouseY);
+        button = button.replace(" ", "");
+        if(button.equals("RIGHT")){
+            robot.mousePress(InputEvent.BUTTON2_MASK);
+            robot.mouseRelease(InputEvent.BUTTON2_MASK);
+        }else if(button.equals("LEFT")){
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+        }else if(button.equals("SPACE")){
+            robot.keyPress(32);
+            robot.keyRelease(32);
+        }else if(button.equals("ONE")){
+            robot.keyPress(49);
+            robot.keyRelease(49);
+        }
+        
+        robot.delay(delay);
     }
     
     public void mechanic(int mouseX, int mouseY, int delay){
