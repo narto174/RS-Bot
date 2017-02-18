@@ -29,24 +29,39 @@ public class RSFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Execute");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel1)))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(92, 92, 92)
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
                 .addComponent(jButton1)
                 .addContainerGap(136, Short.MAX_VALUE))
         );
@@ -54,9 +69,15 @@ public class RSFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws AWTException{
-       bot.execute();
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       try{
+        jLabel1.setText("clicked!");
+        bot.execute();
+       }catch(Exception e){
+           
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
      
      public void setBot(Bot bot){
          this.bot = bot;
@@ -64,5 +85,6 @@ public class RSFrame extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
