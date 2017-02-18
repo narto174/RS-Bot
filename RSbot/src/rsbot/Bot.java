@@ -39,17 +39,20 @@ public class Bot {
     * run this method once the bot has been constructed
     */
     public void execute(){
-        robot.setAutoDelay(40);
-       
-         robot.delay(50);
-         
-        //running to the rock
-        runToTheRock();
+
+        Scanner scanner = null;
+        try{
+            scanner = new Scanner(new File("input.txt"));
+        }catch(FileNotFoundException e){
+            System.err.println("File input.txt not found");
+        }
         
-        //mining
-        mine();
+        robot.delay(50);
         
-        runBackToBank();
+        while(scanner.hasNextInt()){
+            mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+        }
+        
     }
     
     public void mechanic(int mouseX, int mouseY, int delay){
@@ -68,40 +71,18 @@ public class Bot {
     
     public void mine(){
         for(int x = 0; x < 14; x++){
-            robot.mouseMove(887, 537);
-            leftClick();
-            robot.delay(8000);
-        
-            robot.mouseMove(951, 474);
-            leftClick();
-            robot.delay(8000);
+            mechanic(887, 537, 8000);
+            mechanic(951, 474, 8000);
         }
     }
     
     public void runToTheRock(){
-        robot.mouseMove(1316, 60);
-        leftClick();
-        robot.delay(6000);
-        
-        robot.mouseMove(1902, 248);
-        leftClick();
-        robot.delay(8000);
-        
-        robot.mouseMove(1868, 372);
-        leftClick();
-        robot.delay(8000);
-        
-        robot.mouseMove(1806, 407);
-        leftClick();
-        robot.delay(12000);
-        
-        robot.mouseMove(806, 819);
-        leftClick();
-        robot.delay(3000);
-        
-        robot.mouseMove(782, 835);
-        leftClick();
-        robot.delay(3000);
+        mechanic(1316, 60, 6000);
+        mechanic(1902, 248, 8000);
+        mechanic(1868, 372, 8000);
+        mechanic(1806, 407, 12000);
+        mechanic(806, 819, 3000);
+        mechanic(782, 835, 3000);
     }
     
      public void leftClick()
