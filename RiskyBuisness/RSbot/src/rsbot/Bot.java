@@ -61,29 +61,6 @@ public class Bot {
         robot.delay(delay);
     }
     
-    public void runBackToBank(){
-        mechanic(1837, 84, 13000);
-        mechanic(1755, 104, 11000);
-        mechanic(1711, 245, 9000);
-        mechanic(1768, 276, 5000);
-        mechanic(968, 688, 1000);
-    }
-    
-    public void mine(){
-        for(int x = 0; x < 14; x++){
-            mechanic(887, 537, 8000);
-            mechanic(951, 474, 8000);
-        }
-    }
-    
-    public void runToTheRock(){
-        mechanic(1316, 60, 6000);
-        mechanic(1902, 248, 8000);
-        mechanic(1868, 372, 8000);
-        mechanic(1806, 407, 12000);
-        mechanic(806, 819, 3000);
-        mechanic(782, 835, 3000);
-    }
     
      public void leftClick()
     {
