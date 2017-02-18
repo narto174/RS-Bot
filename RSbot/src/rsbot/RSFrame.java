@@ -3,7 +3,7 @@
 * FILE: RSFrame.java
 * DESCRIPTION: This file contains the RSFrame class
 * @author Triston Madilyn Simons
-* @author Matt Marazzo
+* @author Matt Marrazzo
 *
 */
 package rsbot;

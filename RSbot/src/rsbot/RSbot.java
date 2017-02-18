@@ -4,7 +4,7 @@
 * FILE: RSbot.java
 * DESCRIPTION: This file contains the RSbot class
 * @author Triston Madilyn Simons
-* @author Matt Marazzo
+* @author Matt Marrazzo
 *
 */
 package rsbot;

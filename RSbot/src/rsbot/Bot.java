@@ -3,7 +3,7 @@
 * FILE: Bot.java
 * DESCRIPTION: This file contains the Bot class
 * @author Triston Madilyn Simons
-* @author Matt Marazzo
+* @author Matt Marrazzo
 *
 */
 package rsbot;
@@ -41,23 +41,20 @@ public class Bot {
     public void execute(){
         robot.setAutoDelay(40);
        // robot.setAutoWaitForIdle(true);
-        
-       robot.mouseMove(600, 300);
-       robot.delay(20);
-       leftClick();
        
        
         //running to the rock
-//        robot.mouseMove(1316, 60);
-//        leftClick();
-//        robot.mouseMove(1902, 248);
-//        leftClick();
-//        robot.mouseMove(1868, 372);
-//        leftClick();
-//        robot.mouseMove(1806, 407);
-//        leftClick();
-//        robot.mouseMove(806, 819);
-//        leftClick();
+        robot.mouseMove(1316, 60);
+        robot.delay(50);
+        leftClick();
+        robot.mouseMove(1902, 248);
+        leftClick();
+        robot.mouseMove(1868, 372);
+        leftClick();
+        robot.mouseMove(1806, 407);
+        leftClick();
+        robot.mouseMove(806, 819);
+        leftClick();
     }
     
      public void leftClick()
