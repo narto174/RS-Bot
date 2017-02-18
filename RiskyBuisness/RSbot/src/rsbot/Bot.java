@@ -20,12 +20,14 @@ public class Bot {
     
     int x1, x2, y1, y2;
     Robot robot = new Robot();
+    String action;
     
     public Bot() throws AWTException{
         x1 = 0;
         x2 = 29;
         y1 = 1917;
         y2 = 1030;
+        action = null;
     }
     
     public Bot(int x1, int x2, int y1, int y2) throws AWTException{
@@ -33,24 +35,40 @@ public class Bot {
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
+        action = null;
+    }
+    
+    public void setAction(String str){
+        action = str;
+        action = action.toUpperCase().replace(" ", "");
     }
     
     /*
     * run this method once the bot has been constructed
     */
     public void execute(){
-
-        Scanner scanner = null;
-        try{
-            scanner = new Scanner(new File("input.txt"));
-        }catch(FileNotFoundException e){
-            System.err.println("File input.txt not found");
-        }
+        while(true){
+            
+         String fileName = "";
+         if(action.equals("VARROCKOREMINING")){
+             fileName = "input.txt";
+         }else if (action.equals("")){
+             fileName = "input2.txt";
+         }
+            
+            
+         Scanner scanner = null;
+         try{
+             scanner = new Scanner(new File(fileName));
+         }catch(FileNotFoundException e){
+             System.err.println("input not found");
+         }
         
-        robot.delay(50);
+          robot.delay(50);
         
-        while(scanner.hasNextInt()){
-            mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+          while(scanner.hasNextInt()){
+             mechanic(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
+         }
         }
         
     }

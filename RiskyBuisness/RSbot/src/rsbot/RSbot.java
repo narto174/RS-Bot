@@ -22,6 +22,7 @@ public class RSbot {
         Bot bot = new Bot();
         frame.setBot(bot);
         frame.setVisible(true);
+
     }
     
 }
